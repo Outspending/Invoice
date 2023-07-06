@@ -1,0 +1,96 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.Outspending",
+    "module": "Invoice",
+    "version": "0.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.3.3"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "Invoice-0.0.1.jar",
+          "url": "Invoice-0.0.1.jar",
+          "size": 19223,
+          "sha512": "2f7294c114f413c6fc6c84d15bb10050f8166caf3b8a18ca795112bc13f275ca60cbdb16f6de623408c456fc6f13fb209ee38b4bfe46ae7aad6018d06fb2282f",
+          "sha256": "6095efaee7ad2fe7dad584e63b11ad3e480fc4f809c3b87ee8fadc81ac3482e9",
+          "sha1": "ecc5c440434be6d8db77c386deede1598b2b5f85",
+          "md5": "852d5210c29511633b9bc93341f9eb9c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.github.simplix-softworks",
+          "module": "simplixstorage",
+          "version": {
+            "requires": "3.2.6"
+          }
+        },
+        {
+          "group": "fr.mrmicky",
+          "module": "fastboard",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "Invoice-0.0.1.jar",
+          "url": "Invoice-0.0.1.jar",
+          "size": 19223,
+          "sha512": "2f7294c114f413c6fc6c84d15bb10050f8166caf3b8a18ca795112bc13f275ca60cbdb16f6de623408c456fc6f13fb209ee38b4bfe46ae7aad6018d06fb2282f",
+          "sha256": "6095efaee7ad2fe7dad584e63b11ad3e480fc4f809c3b87ee8fadc81ac3482e9",
+          "sha1": "ecc5c440434be6d8db77c386deede1598b2b5f85",
+          "md5": "852d5210c29511633b9bc93341f9eb9c"
+        }
+      ]
+    },
+    {
+      "name": "shadowRuntimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "shadowed",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "Invoice-0.0.1-all.jar",
+          "url": "Invoice-0.0.1-all.jar",
+          "size": 598672,
+          "sha512": "d84cc944ba14227dc074c3e86123e35cc2f25bc8632aa9071556e57c8c329893ce6e9c68b70a72d8f3f487cb5216f0eb4db1d71e7c7e084bf4ac4c3198196ecf",
+          "sha256": "a47d1ae8b19a1a15ef012c8af9b49f2300b558b3cf69bc83b90fe19ab3bbe993",
+          "sha1": "c4878c65e0d42d4d371964778415201af2a4d0e3",
+          "md5": "0f974d904e6df7a90f0a60009ee685af"
+        }
+      ]
+    }
+  ]
+}
