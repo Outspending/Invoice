@@ -1,3 +1,7 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '7.1.1'
+}
+
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 
@@ -14,10 +18,24 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        name = "jitpack.io"
+        url = "https://jitpack.io"
+    }
 }
 
 dependencies {
     compileOnly "io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT"
+    implementation 'com.github.simplix-softworks:simplixstorage:3.2.6'
+    compileOnly "net.luckperms:api:5.4"
+    implementation 'fr.mrmicky:fastboard:2.0.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }
 
 wrapper {
@@ -32,3 +50,10 @@ publishing {
         }
     }
 }
+
+shadowJar {
+    relocate 'fr.mrmicky.fastboard', 'me.outspending.invoice.fastboard'
+
+    destinationDirectory = file("D:\\MC Server\\plugins")
+}
+
