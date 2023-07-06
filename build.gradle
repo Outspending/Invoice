@@ -1,7 +1,3 @@
-plugins {
-    id 'com.github.johnrengelman.shadow' version '7.1.1'
-}
-
 apply plugin: 'java'
 apply plugin: 'maven-publish'
 
@@ -56,10 +52,3 @@ publishing {
         }
     }
 }
-
-shadowJar {
-    relocate 'fr.mrmicky.fastboard', 'me.outspending.invoice.fastboard'
-
-    destinationDirectory = file("D:\\MC Server\\plugins")
-}
-
