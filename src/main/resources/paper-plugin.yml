@@ -1,0 +1,4 @@
+name: Invoice
+version: '${version}'
+main: me.outspending.invoice.Invoice
+api-version: '1.19'

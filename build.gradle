@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+
+group = 'com.github.Outspending'
+version = '0.0.1'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+}
+
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT"
+}
+
+wrapper {
+    gradleVersion = "7.3.3"
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
