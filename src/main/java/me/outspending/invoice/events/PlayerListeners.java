@@ -21,7 +21,7 @@ public class PlayerListeners implements Listener {
         Player player = e.getPlayer();
         PlayerData data = STORAGE.loadPlayerData(player);
 
-        player.setResourcePack("https://download.mc-packs.net/pack/43f1c61ad04010fbd0769f3b25fddd0492cf901d.zip", "43f1c61ad04010fbd0769f3b25fddd0492cf901d");
+        player.setResourcePack("https://download.mc-packs.net/pack/c4671ff5d8676a8fa19b1e024d81783a0a146c6f.zip", "c4671ff5d8676a8fa19b1e024d81783a0a146c6f");
         STORAGE.addPlayerData(data);
 
         ScoreboardManager.createScoreboard(player);

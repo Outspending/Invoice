@@ -42,13 +42,13 @@ public class ScoreboardManager {
         board.updateLines(
                 "",
                 COLOR_UTILS.colorizeWithHex("&#ff5c33&l" + player.getName()),
-                COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7ʙᴀʟᴀɴᴄᴇ: &2&l$&a" + NUMBER_UTILS.format(data.getBalance(), 2)),
-                COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7ᴛᴏᴋᴇɴꜱ: &fｐ&e" + NUMBER_UTILS.format(data.getTokens(), 2)),
+                COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7ʙᴀʟᴀɴᴄᴇ: &2&l$&a" + NUMBER_UTILS.format(data.getBalance())),
+                COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7ᴛᴏᴋᴇɴꜱ: &fｐ&e" + NUMBER_UTILS.format(data.getTokens())),
                 COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7ɢᴇɴꜱ: &f0/25"),
-                COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7ᴍᴜʟᴛɪᴘʟɪᴇʀ: &fx" + NUMBER_UTILS.format(data.getMultiplier(), 0)),
+                COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7ᴍᴜʟᴛɪᴘʟɪᴇʀ: &fx" + NUMBER_UTILS.format(data.getMultiplier())),
                 "",
                 COLOR_UTILS.colorizeWithHex("&#ff5c33&lLEVELING"),
-                COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7xᴘ: &f" + NUMBER_UTILS.format(xp, 2) + "/" + NUMBER_UTILS.format(xpMax, 2) + " &7&o(" + NUMBER_UTILS.format((xp / xpMax * 100), 1) + "%)"),
+                COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7xᴘ: &f" + NUMBER_UTILS.format(xp) + "/" + NUMBER_UTILS.format(xpMax) + " &7&o(" + NUMBER_UTILS.fix(xp / xpMax * 100) + "%)"),
                 COLOR_UTILS.colorizeWithHex("&#ff5c33&l| &7ʟᴇᴠᴇʟ: &f" + data.getLevel()),
                 "",
                 COLOR_UTILS.colorizeWithHex("&#ff5c33&nInvoice&f.Minehut.gg")

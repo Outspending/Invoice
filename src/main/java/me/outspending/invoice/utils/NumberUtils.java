@@ -6,9 +6,9 @@ public class NumberUtils {
 
     private String[] SUFFIXES = {"", "K", "M", "B", "T", "Qa", "Qi", "Sx"};
 
-    public String format(double number, int decimalPlaces) {
+    public String format(double number) {
         if (number < 1000)
-            return String.valueOf(number);
+            return String.format("%.0f", number);
 
         double result = number;
         String suffix = "";
@@ -19,7 +19,7 @@ public class NumberUtils {
             suffix = SUFFIXES[suffixIndex];
             suffixIndex++;
         }
-        return String.format("%." + decimalPlaces + "f%s", result, suffix);
+        return String.format("%.2f%s", result, suffix);
     }
 
     public String regex(double number) {
