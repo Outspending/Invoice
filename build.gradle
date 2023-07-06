@@ -20,6 +20,9 @@ repositories {
     maven {
         name = "jitpack.io"
         url = "https://jitpack.io"
+        credentials {
+            username authToken
+        }
     }
 }
 
