@@ -8,25 +8,25 @@ import java.util.function.Consumer;
 
 public class ExpirableList<V> {
 
-    private final List<Entry<V>> data = new ArrayList<>();
+    private final Map<V, Entry<V>> data = new HashMap<>();
 
-    public void put(V value, long seconds) {
+    public void add(V value, long seconds) {
         long expirationTime = System.currentTimeMillis() + (seconds * 1000);
-        data.add(new Entry<>(value, expirationTime));
+        data.put(value, new Entry<>(value, expirationTime));
     }
 
     public V get(V value) {
-        Entry<V> entry = data.get(data.indexOf(value));
+        Entry<V> entry = data.get(value);
         if (entry != null && System.currentTimeMillis() < entry.expirationTime) {
             return entry.value;
         } else {
-            data.remove(entry);
+            data.remove(value);
             return null;
         }
     }
 
     public boolean containsKey(V value) {
-        Entry<V> entry = data.get(data.indexOf(value));
+        Entry<V> entry = data.get(value);
         if (entry != null && System.currentTimeMillis() < entry.expirationTime) {
             return true;
         } else {
@@ -45,10 +45,10 @@ public class ExpirableList<V> {
 
     public void forEach(@NotNull Consumer<? super V> action) {
         Objects.requireNonNull(action);
-        for (Entry<V> entry : data) {
+        for (Map.Entry<V, Entry<V>> entry : data.entrySet()) {
             V v;
             try {
-                v = entry.value;
+                v = entry.getKey();
             } catch (IllegalStateException ise) {
                 throw new ConcurrentModificationException(ise);
             }
@@ -61,9 +61,9 @@ public class ExpirableList<V> {
         if (data.isEmpty())
             return expired;
 
-        data.forEach((value) -> {
+        data.forEach((key, value) -> {
             if (System.currentTimeMillis() > value.expirationTime)
-                expired.add(value.value);
+                expired.add(key);
         });
         return expired;
     }
@@ -73,7 +73,7 @@ public class ExpirableList<V> {
             return null;
 
         Entry<V> last = null;
-        for (Entry<V> entry : data) {
+        for (Entry<V> entry : data.values()) {
             if (last == null || entry.expirationTime > last.expirationTime)
                 last = entry;
         }
@@ -85,7 +85,7 @@ public class ExpirableList<V> {
             return null;
 
         Entry<V> first = null;
-        for (Entry<V> entry : data) {
+        for (Entry<V> entry : data.values()) {
             if (first == null || entry.expirationTime < first.expirationTime)
                 first = entry;
         }
@@ -93,7 +93,7 @@ public class ExpirableList<V> {
     }
 
     public Entry<V> getEntry(V value) {
-        return data.get(data.indexOf(value));
+        return data.get(value);
     }
 
     public int size() {
