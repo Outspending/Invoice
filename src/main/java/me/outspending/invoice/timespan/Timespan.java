@@ -1,4 +1,4 @@
-package me.outspending.invoice;
+package me.outspending.invoice.timespan;
 
 import java.util.concurrent.TimeUnit;
 
