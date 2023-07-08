@@ -20,7 +20,15 @@ public class PlayerData {
         this.player = player;
     }
 
-    public PlayerData(Player player, double balance, double tokens, int level, double xp, double xpMax, double multiplier, String chatColor, String tag) {
+    public PlayerData(Player player,
+                      double balance,
+                      double tokens,
+                      int level,
+                      double xp,
+                      double xpMax,
+                      double multiplier,
+                      String chatColor,
+                      String tag) {
         this.player = player;
         this.balance = balance;
         this.tokens = tokens;

@@ -4,25 +4,19 @@ import java.text.DecimalFormat;
 
 public class NumberUtils {
 
-    private String[] SUFFIXES = {"", "K", "M", "B", "T", "Qa", "Qi", "Sx"};
+    private static DecimalFormat FIX_FORMAT = new DecimalFormat("0.##");
+    private static String[] suffix = {"", "K", "M", "B", "T", "Qa", "Qi", "Sx"};
 
-    public String format(double number) {
-        if (number < 1000)
-            return String.format("%.0f", number);
-
-        double result = number;
-        String suffix = "";
-        int suffixIndex = 0;
-
-        while (number >= 1000 && suffixIndex < SUFFIXES.length - 1) {
-            result = result / 1000.0;
-            suffix = SUFFIXES[suffixIndex];
-            suffixIndex++;
+    public static String format(double number) {
+        String r = new DecimalFormat("##0E0").format(number);
+        r = r.replaceAll("E[0-9]", suffix[Character.getNumericValue(r.charAt(r.length() - 1)) / 3]);
+        while(r.length() > 4 || r.matches("[0-9]+\\.[a-z]")){
+            r = r.substring(0, r.length()-2) + r.substring(r.length() - 1);
         }
-        return String.format("%.2f%s", result, suffix);
+        return r;
     }
 
-    public String regex(double number) {
+    public static String regex(double number) {
         StringBuilder sb = new StringBuilder();
         String numberString = String.valueOf(number);
         int length = numberString.length();
@@ -37,7 +31,7 @@ public class NumberUtils {
         return sb.toString();
     }
 
-    public String fix(double d) {
-        return new DecimalFormat("0.##").format(d);
+    public static String fix(double d) {
+        return FIX_FORMAT.format(d);
     }
 }

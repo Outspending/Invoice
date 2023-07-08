@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 
-public class Storage implements StorageHandler {
+public class Storage {
 
     private static final Json storage = SimplixBuilder
             .fromFile(new File(Invoice.getPlugin(Invoice.class).getDataFolder(), "player-data.json"))
@@ -19,8 +19,7 @@ public class Storage implements StorageHandler {
             .createJson();
     private static final FileData FILE_DATA = storage.getFileData();
 
-    @Override
-    public void savePlayerData(PlayerData data) {
+    public static void savePlayerData(PlayerData data) {
         final String key = "data." + data.getPlayer().getUniqueId() + ".";
 
         FILE_DATA.insert(key + "balance", data.getBalance());
@@ -34,8 +33,7 @@ public class Storage implements StorageHandler {
 
     }
 
-    @Override
-    public PlayerData loadPlayerData(Player player) {
+    public static PlayerData loadPlayerData(Player player) {
         final String key = "data." + player.getUniqueId() + ".";
 
         if (storage.contains("data." + player.getUniqueId())) {
@@ -52,30 +50,25 @@ public class Storage implements StorageHandler {
         return new PlayerData(player);
     }
 
-    @Override
-    public void addPlayerData(PlayerData data) {
+    public static void addPlayerData(PlayerData data) {
         Invoice.getPLAYER_DATA_MAP().put(data.getPlayer().getUniqueId(), data);
     }
 
-    @Override
-    public void resetPlayerData(Player player) {
+    public static void resetPlayerData(Player player) {
         final String key = "data." + player.getUniqueId() + ".";
 
         storage.removeAll(key + "balance", key + "tokens", key + "level", key + "xp", key + "xpMax", key + "multiplier", key + "chatColor", key + "tag");
     }
 
-    @Override
-    public void unloadPlayerData(PlayerData data) {
+    public static void unloadPlayerData(PlayerData data) {
         Invoice.getPLAYER_DATA_MAP().remove(data.getPlayer().getUniqueId());
     }
 
-    @Override
-    public void unloadPlayerData(Player player) {
+    public static void unloadPlayerData(Player player) {
         Invoice.getPLAYER_DATA_MAP().remove(player.getUniqueId());
     }
 
-    @Override
-    public @Nullable PlayerData getPlayerData(Player player) {
+    public static @Nullable PlayerData getPlayerData(Player player) {
         return Invoice.getPLAYER_DATA_MAP().get(player.getUniqueId());
     }
 }

@@ -53,7 +53,7 @@ public class Timespan {
             builder.append(minutes).append("m ");
         }
         if (seconds > 0 || builder.length() == 0) {
-            builder.append(seconds).append("s ");
+            builder.append(seconds).append("s");
         }
         return builder.toString();
     }

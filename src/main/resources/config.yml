@@ -1,0 +1,13 @@
+announcements:
+  - announcement:
+    enabled: true
+    firstLine: 'This is the first line!'
+    secondLine: 'This is the second line!'
+  - announcement:
+    enabled: true
+    firstLine: 'This is the first line! 1'
+    secondLine: 'This is the second line! 1'
+  - announcement:
+    enabled: true
+    firstLine: 'This is the first line! 2'
+    secondLine: 'This is the second line! 2'

@@ -8,20 +8,19 @@ import java.util.regex.Pattern;
 
 public class ColorUtils {
 
-    private final Pattern pattern = Pattern.compile("&#([A-Fa-f0-9]{6})");
+    private static final Pattern pattern = Pattern.compile("&#([A-Fa-f0-9]{6})");
 
-    public String colorize(String string) {
+
+    public static String colorize(String string) {
         return ChatColor.translateAlternateColorCodes('&', string);
     }
 
-    public List<String> colorize(List<String> strings) {
-        for (int i = 0; i < strings.size(); i++)
-            strings.set(i, colorize(strings.get(i)));
-
+    public static List<String> colorize(List<String> strings) {
+        strings.replaceAll(ColorUtils::colorize);
         return strings;
     }
 
-    public String colorizeWithHex(String string) {
+    public static String colorizeWithHex(String string) {
         Matcher matcher = pattern.matcher(string);
         while (matcher.find()) {
             String color = string.substring((matcher.start() + 1), matcher.end());
@@ -31,10 +30,8 @@ public class ColorUtils {
         return colorize(string);
     }
 
-    public List<String> colorizeWithHex(List<String> strings) {
-        for (int i = 0; i < strings.size(); i++)
-            strings.set(i, colorizeWithHex(strings.get(i)));
-
+    public static List<String> colorizeWithHex(List<String> strings) {
+        strings.replaceAll(ColorUtils::colorizeWithHex);
         return strings;
     }
 }
