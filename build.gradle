@@ -1,6 +1,5 @@
 plugins {
     id 'com.github.johnrengelman.shadow' version '7.1.1'
-    id 'io.papermc.paperweight.userdev' version '1.5.5'
 }
 
 apply plugin: 'java'
@@ -32,8 +31,7 @@ repositories {
 }
 
 dependencies {
-    paperweight.paperDevBundle("1.19.4-R0.1-SNAPSHOT")
-
+    compileOnly "io.papermc.paper:paper-api:1.19-R0.1-SNAPSHOT"
     implementation 'com.github.simplix-softworks:simplixstorage:3.2.6'
     compileOnly "net.luckperms:api:5.4"
     implementation 'fr.mrmicky:fastboard:2.0.0'
